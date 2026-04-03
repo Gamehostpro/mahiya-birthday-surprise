@@ -1,0 +1,251 @@
+/* --- Global Theme & Variables --- */
+:root {
+    --gold: #ffd700;
+    --rose: #ff4d6d;
+    --deep-pink: #ff0a54;
+    --glass: rgba(255, 255, 255, 0.12);
+    --soft-white: #f8f9fa;
+    --dark-crimson: #2e0101;
+}
+
+/* --- Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #0c0003;
+    color: white;
+    font-family: 'Hind Siliguri', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Cinematic Intro Sequence --- */
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, #1a0000 0%, #000 100%);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-box h1 {
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    animation: slowPulse 3s infinite;
+}
+
+.intro-box span {
+    font-size: 0.9rem;
+    color: #bbb;
+    font-weight: 300;
+}
+
+#word-sequence {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 0 0 25px var(--rose), 0 0 50px var(--deep-pink);
+    transition: all 0.9s ease;
+    margin-top: 20px;
+}
+
+/* --- Main Experience UI --- */
+#main-content {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--dark-crimson), #0c0003);
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.royal-card {
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 60px;
+    padding: 60px 30px 40px;
+    width: 92%;
+    max-width: 420px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    z-index: 100;
+    position: relative;
+}
+
+/* --- Profile Picture & Aura Section --- */
+.profile-glow {
+    width: 150px;
+    height: 150px;
+    margin: -140px auto 35px;
+    position: relative;
+}
+
+.mahiya-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--gold);
+    object-fit: cover;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.aura-circle {
+    position: absolute;
+    inset: -15px;
+    background: var(--gold);
+    filter: blur(30px);
+    opacity: 0.3;
+    border-radius: 50%;
+    animation: rotateAura 8s linear infinite;
+    z-index: 1;
+}
+
+/* --- Cake Interaction (Knife Fix) --- */
+.cake-interaction {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cake-emoji {
+    font-size: 170px;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+}
+
+#knife {
+    position: absolute;
+    font-size: 75px;
+    top: -10px;
+    right: 15px;
+    transform: rotate(-35deg);
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 200;
+}
+
+/* --- Teddy Bear Section (Giant Size) --- */
+.gift-container {
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gift-emoji { font-size: 150px; }
+
+#teddy {
+    font-size: 220px; /* টেডি এখন বিশাল বড় */
+    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.5));
+    animation: teddyMovement 2.5s infinite ease-in-out;
+}
+
+/* --- Romantic UI Components --- */
+.romantic-text {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 35px;
+    font-weight: 600;
+    min-height: 60px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.next-btn {
+    background: linear-gradient(45deg, var(--rose), var(--deep-pink));
+    color: white;
+    border: none;
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.6);
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.l-btn {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 14px;
+    border-radius: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.letter-paper {
+    background: var(--soft-white);
+    color: #2c3e50;
+    padding: 35px 25px;
+    border-radius: 30px;
+    margin-top: 30px;
+    text-align: left;
+    font-style: italic;
+    line-height: 1.8;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border-top: 5px solid var(--rose);
+}
+
+.letter-top-design {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--rose);
+}
+
+/* --- Advanced Animations --- */
+@keyframes rotateAura { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes slowPulse { 50% { opacity: 0.5; transform: scale(0.98); } }
+@keyframes teddyMovement { 0%, 100% { transform: scale(1) translateY(0); } 50% { transform: scale(1.05) translateY(-15px); } }
+
+.heart {
+    position: absolute;
+    color: var(--rose);
+    animation: riseUp linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes riseUp {
+    from { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+    to { transform: translateY(-15vh) rotate(360deg); opacity: 0; }
+}
+
+.hidden { display: none !important; }

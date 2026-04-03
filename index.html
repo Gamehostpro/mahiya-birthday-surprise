@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahiya's Royal Birthday Celebration | Created by Bulbul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Hind+Siliguri:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="intro-overlay" onclick="startExperience()">
+        <div class="intro-box">
+            <h1 id="tap-msg">আজকের দিনটি শুধু তোমার জন্য, মাহিঁয়া... ✨ <br> <span>(অপেক্ষা করো এবং এখানে ক্লিক করো)</span></h1>
+            <div id="word-sequence" class="hidden"></div>
+        </div>
+    </div>
+
+    <div id="main-content" style="display:none; opacity: 0;">
+        <div id="hearts-bg"></div>
+        
+        <div class="royal-card">
+            <div class="profile-glow">
+                <img src="mahiya1.jpg" id="mahiya-pic" class="mahiya-img" alt="Mahiya">
+                <div class="aura-circle"></div>
+                <div class="aura-particles"></div>
+            </div>
+
+            <div id="content-area">
+                
+                <div id="stage-cake" class="stage">
+                    <h2 class="romantic-text">কেকটি কাটো এবং তোমার দিনটি শুরু করো, প্রিয় মাহিঁয়া! 🎂</h2>
+                    <div class="cake-interaction">
+                        <div id="knife">🔪</div>
+                        <div class="cake-display" onclick="cutTheCake()">
+                            <span id="whole-cake" class="cake-emoji">🎂</span>
+                            <span id="sliced-cake" class="cake-emoji hidden">🍰</span>
+                        </div>
+                    </div>
+                    <button class="next-btn hidden" id="to-gift-btn" onclick="nextStage('stage-cake', 'stage-gift', 'mahiya2.jpg')">পরের সারপ্রাইজ 🎁</button>
+                </div>
+
+                <div id="stage-gift" class="stage" style="display:none; opacity:0;">
+                    <h2 class="romantic-text">তোমার জন্য এক আকাশ সমান ভালোবাসা! 🎁</h2>
+                    <div class="gift-container" onclick="openGift()">
+                        <div id="gift-box" class="gift-emoji">🎁</div>
+                        <div id="teddy" class="gift-emoji hidden">🧸</div>
+                    </div>
+                    <button class="next-btn hidden" id="to-letters-btn" onclick="nextStage('stage-gift', 'stage-letters', 'mahiya3.jpg')">আমার চিঠিগুলো পড়ো 💌</button>
+                </div>
+
+                <div id="stage-letters" class="stage" style="display:none; opacity:0;">
+                    <h2 class="romantic-text">আমার মনের গহীন থেকে কিছু কথা... 💌</h2>
+                    <div class="letter-grid">
+                        <button class="l-btn" onclick="openLetter(1)">চিঠি ১</button>
+                        <button class="l-btn" onclick="openLetter(2)">চিঠি ২</button>
+                        <button class="l-btn" onclick="openLetter(3)">চিঠি ৩</button>
+                    </div>
+                    <div id="letter-display" class="letter-paper hidden">
+                        <div class="letter-top-design">❤️ ✨ ❤️</div>
+                        <p id="type-text"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
